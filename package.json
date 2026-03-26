@@ -1,0 +1,19 @@
+{
+  "name": "cf-mail-viewer",
+  "version": "1.0.0",
+  "description": "A Cloudflare worker to receive and view emails matching domain catch-all.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute cf-mail-db --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute cf-mail-db --remote --file=./schema.sql"
+  },
+  "dependencies": {
+    "postal-mime": "^2.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

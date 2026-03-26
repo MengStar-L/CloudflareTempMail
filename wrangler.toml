@@ -1,0 +1,15 @@
+name = "cf-mail-viewer"
+main = "src/index.js"
+compatibility_date = "2024-03-25"
+
+# 配置 D1 数据库绑定
+# 当你在 CF 控制台创建好 D1 后，使用下方的 ID 替换 database_id 即可部署
+[[d1_databases]]
+binding = "DB"
+database_name = "cf-mail-db"
+database_id = "YOUR_DATABASE_ID_HERE"
+preview_database_id = "DB"
+
+[vars]
+# 访问网页管理后台的密码，默认 123456
+ADMIN_PASSWORD = "123456"
