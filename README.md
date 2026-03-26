@@ -1,4 +1,4 @@
-# CF Mail Viewer (云端纯享版)
+# CloudflareTempMail (云端纯享版)
 
 这份教程专为您量身定制。所有的操作都在 **Cloudflare 网页控制台 (Dashboard)** 中点按鼠标即可完成，**不需要在您的电脑上安装任何环境或运行任何代码**。
 
@@ -11,7 +11,7 @@
 ### 第一步：创建你的 D1 邮件数据库
 1. 登录 [Cloudflare 控制台](https://dash.cloudflare.com/)。
 2. 在左侧的主菜单中，找到并点击 **Workers & Pages** -> **D1**。
-3. 点击 **Create database**（创建数据库），并在弹出的框里命名为 `cf-mail-db`。
+3. 点击 **Create database**（创建数据库），并在弹出的框里命名为 `CloudflareTempMail-db`。
 4. 创建成功后，点击进入这个刚建好数据库的概览页，随后点击上方标签页中的 **Console (控制台)**。
 5. 请在本项目目录中找到 `schema.sql` 文件，打开它并复制里面**所有的文本内容**。
 6. 将其粘贴到 Cloudflare 的 SQL 输入框内，点击 **Execute**。这样你的邮件和地址管理表就建立好啦！
@@ -19,7 +19,7 @@
 ### 第二步：创建 Worker (用来驱动页面的小云主机)
 1. 在左侧菜单中，回到 **Workers & Pages** -> **Overview (概览)**。
 2. 点击右上角的 **Create Application (创建应用程序)**，随后点击 **Create Worker**。
-3. 随意起一个名字（比如 `cf-mail-viewer`），随后直接点击右下角的 **Deploy (部署)** 按钮。
+3. 随意起一个名字（比如 `CloudflareTempMail`），随后直接点击右下角的 **Deploy (部署)** 按钮。
 4. 部署成功后，页面上会出现一个 **Edit Code (编辑代码)** 按钮，请点击它进入在线网页代码编辑器。
 5. 将网页左侧编辑器中**原有的示例代码全部删除**。
 6. 打开本项目中为您准备好的 `worker-dashboard.js` 文件，复制里面 **所有内容** （大约 120KB代码，已经帮您内置了所有的解析依赖）。
@@ -32,7 +32,7 @@
 2. 点击中间靠右标签页里的 **Settings (设置)** -> **Variables and Secrets (变量与机密)**。
 3. 往下拉，找到 **D1 Database Bindings** 区域，点击 **Add binding (添加绑定)**。
    - **Variable name (变量名称)**：此处**只能并且必须**填写：`DB`
-   - **Database (数据库)**：下拉选择你第一步建立好的 `cf-mail-db`。
+   - **Database (数据库)**：下拉选择你第一步建立好的 `CloudflareTempMail-db`。
    - 点击 **Save and deploy (保存并部署)**。
 4. 继续往下拉，找到最下方的 **Environment variables (环境变量)** 区域，点击 **Add variable (添加变量)**。
    - **Variable name**: 填入 `ADMIN_PASSWORD`
@@ -46,7 +46,7 @@
 3. 随后，点击屏幕上方中间的 **Routing Rules (路由规则)** 标签页。
 4. 一直往屏幕下方滚动，直到看见底部的 **Catch-all address** 选项卡。
 5. 点击右侧的 **Edit (编辑)**。将第一栏的操作 (Action) 修改为：**Send to a Worker (发送到 Worker)**。
-6. 在目标（Destination）那一栏的下拉选单中，找到并选择刚刚部署好的 Worker：`cf-mail-viewer`。
+6. 在目标（Destination）那一栏的下拉选单中，找到并选择刚刚部署好的 Worker：`CloudflareTempMail`。
 7. 点击 Save 进行保存。
 
 🎉 **大功告成！** 🎉

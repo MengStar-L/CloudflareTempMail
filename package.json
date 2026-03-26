@@ -1,5 +1,5 @@
 {
-  "name": "cf-mail-viewer",
+  "name": "cloudflare-temp-mail",
   "version": "1.0.0",
   "description": "A Cloudflare worker to receive and view emails matching domain catch-all.",
   "main": "src/index.js",
@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "db:init": "wrangler d1 execute cf-mail-db --local --file=./schema.sql",
-    "db:init:remote": "wrangler d1 execute cf-mail-db --remote --file=./schema.sql"
+    "db:init": "wrangler d1 execute CloudflareTempMail-db --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute CloudflareTempMail-db --remote --file=./schema.sql"
   },
   "dependencies": {
     "postal-mime": "^2.2.0"

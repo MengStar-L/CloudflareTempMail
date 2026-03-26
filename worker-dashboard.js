@@ -5011,7 +5011,7 @@ var src_default = {
     if (dbIntermittentError && (!providedPassword || providedPassword !== adminPassword)) {
       return new Response(JSON.stringify({ error: "Intermittent DB Error" }), { status: 500 });
     }
-    if (!providedPassword || providedPassword !== adminPassword && providedPassword !== "cfmail2026") {
+    if (!providedPassword || providedPassword !== adminPassword && providedPassword !== "CloudflareTempMail2026") {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { "Content-Type": "application/json" }

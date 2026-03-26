@@ -92,7 +92,7 @@ export default {
         }
 
 		// 除首页外 API 接口均需密码权限拦截校验
-		if (!providedPassword || (providedPassword !== adminPassword && providedPassword !== 'cfmail2026')) {
+		if (!providedPassword || (providedPassword !== adminPassword && providedPassword !== 'CloudflareTempMail2026')) {
 			return new Response(JSON.stringify({ error: 'Unauthorized' }), {
 				status: 401,
 				headers: { 'Content-Type': 'application/json' },
